@@ -160,9 +160,7 @@ create_attribute <- function(attribute_name, attribute_definition, storage_type,
                     attributeDefinition = attribute_definition,
                     storageType = storage_type)
   
-  if (missing(attribute_label)) {
-    message('No attribute label provided.')
-  } else {
+  if (!missing(attribute_label)) {
    attribute$attributeLabel <- attribute_label
   }
   
@@ -239,9 +237,7 @@ create_nominal <- function(domain = c("text", "enumerated"), definition, text_pa
   if (domain == "text") {
     measurementScale$nominal$nonNumericDomain$textDomain$definition <- definition
     
-    if (is.null(text_pattern)) {
-      message('Warning: Please add text pattern if applicable.')
-    } else { 
+    if (!is.null(text_pattern)) {
       measurementScale$nominal$nonNumericDomain$textDomain$pattern <- text_pattern
     }
     
@@ -293,9 +289,7 @@ create_ordinal <- function(domain = c("text", "enumerated"), definition, text_pa
   if (domain == "text") {
     measurementScale$ordinal$nonNumericDomain$textDomain$definition <- definition
     
-    if (is.null(text_pattern)) {
-      message('Warning: Please add text pattern if applicable.')
-    } else { 
+    if (!is.null(text_pattern)) {
       measurementScale$ordinal$nonNumericDomain$textDomain$pattern <- text_pattern
     }
     

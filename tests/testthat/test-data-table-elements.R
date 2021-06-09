@@ -12,11 +12,6 @@ test_that('Correct error and warning messages are produced.', {
                              domain = "text", definition = "Latitude", text_pattern = "Latitudes"),
                'Please provide a brief definition of the attribute you are including.')
   
-  expect_message(create_attribute(attribute_name = "LatitudeDD", attribute_definition = "Latitude",
-                               storage_type = "coordinate", measurement_scale = "ordinal",
-                               domain = "text", definition = "Latitude", text_pattern = "Latitudes"),
-                 'No attribute label provided.')
-  
   expect_error(create_attribute(attribute_name = "LatitudeDD", attribute_definition = "Latitude",
                              attribute_label = "Lat", measurement_scale = "ordinal",
                              domain = "text", definition = "Latitude", text_pattern = "Latitudes"),
@@ -31,11 +26,7 @@ test_that('Correct error and warning messages are produced.', {
                              attribute_label = "Lat", storage_type = "coordinate", measurement_scale = "ordinal",
                              domain = "text", text_pattern = "Latitudes"),
                'Please provide the description for your measurement scale.')
-  
-  expect_message(create_attribute(attribute_name = "LatitudeDD", attribute_definition = "Latitude",
-                               attribute_label = "Lat", storage_type = "coordinate", measurement_scale = "ordinal",
-                               domain = "text", definition = "Latitude"),
-                 'Warning: Please add text pattern if applicable.')
+
   
   expect_error(create_attribute(attribute_name = "site_id", attribute_label = "sites", 
                              attribute_definition = "Site id as used in sites table",
@@ -48,12 +39,6 @@ test_that('Correct error and warning messages are produced.', {
                              storage_type = "string", measurement_scale = "nominal",
                              definition = "Sites", text_pattern = "ids"),
                'Please provide a domain of "text" or "enumerated" and supply the remaining applicable inputs.')
-  
-  expect_message(create_attribute(attribute_name = "site_id", attribute_definition = "Site id as used in sites table",
-                               storage_type = "string", measurement_scale = "nominal",
-                               domain = "text", attribute_label = "sites",
-                               definition = "Site id as used in sites table."),
-                 'Warning: Please add text pattern if applicable.')
   
   expect_error(create_attribute(attribute_name = "Recap", attribute_definition = "Has the Turtle been captured and tagged previously",
                              storage_type = "text", attribute_label = "Turtles",
@@ -70,12 +55,6 @@ test_that('Correct error and warning messages are produced.', {
                              attribute_label = "Latitude", storage_type = "coordinate",
                              measurement_scale = "ordinal", domain = "text", text_pattern = "NA"),
                'Please provide the description for your measurement scale.')
-  
-  expect_message(create_attribute(attribute_name = "LatitudeDD", attribute_definition = "Latitude",
-                               attribute_label = "Latitude", storage_type = "coordinate",
-                               measurement_scale = "ordinal",
-                               domain = "text", definition = "Latitude"),
-                 'Warning: Please add text pattern if applicable.')
   
   expect_error(create_attribute(attribute_name = "hwa", attribute_definition = "Hemlock woolly adelgid density per meter of branch",
                              storage_type = "number", measurement_scale = "ordinal",
